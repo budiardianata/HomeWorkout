@@ -1,0 +1,33 @@
+name: run android lint
+
+on:
+  push:
+    branches: [main] # Just in case main was not up to date while merging PR
+  pull_request:
+    types: [opened, synchronize]
+
+jobs:
+  run:
+    name: Lint And Test
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+
+      - uses: actions/setup-java@v2
+        with:
+          distribution: 'temurin'
+          java-version: '11'
+          cache: 'gradle'
+
+      - uses: actions/cache@v2
+        with:
+          path: ~/.gradle
+          key: gradle-${{ hashFiles('gradle-checksums.txt') }}-${{ hashFiles('gradle/wrapper/gradle-wrapper.properties') }}
+          restore-keys: |
+            gradle-${{ hashFiles('gradle-checksums.txt') }}-
+
+      - name: Run Lint Debug
+        run: ./gradlew lint
+
+      - name: Run Unit Tests
+        run: ./gradlew test --stacktrace
