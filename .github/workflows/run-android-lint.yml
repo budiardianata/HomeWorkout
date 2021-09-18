@@ -18,6 +18,7 @@ jobs:
           distribution: 'temurin'
           java-version: '11'
           cache: 'gradle'
+          java-package: jdk
 
       - uses: actions/cache@v2
         with:
@@ -27,7 +28,7 @@ jobs:
             gradle-${{ hashFiles('gradle-checksums.txt') }}-
 
       - name: Run Lint Debug
-        run: ./gradlew lint
+        run: ~/.gradlew lint
 
       - name: Run Unit Tests
-        run: ./gradlew test --stacktrace
+        run: ~/.gradlew test --stacktrace
