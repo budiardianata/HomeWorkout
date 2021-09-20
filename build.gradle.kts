@@ -5,9 +5,9 @@ buildscript {
     }
     dependencies {
         classpath(Dependencies.gradle)
+        classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:1.5.30")
         classpath(Dependencies.navigationSafeArgs)
         classpath(Dependencies.googleServices)
-        classpath(kotlin(module = "gradle-plugin", version = Versions.kotlin))
     }
 }
 

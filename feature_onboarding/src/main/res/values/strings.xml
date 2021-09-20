@@ -1,6 +1,4 @@
 <resources>
-    <string name="app_name">HomeWorkout</string>
-    <string name="title_feature_onboarding">OnBoarding</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

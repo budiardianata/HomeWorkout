@@ -7,4 +7,8 @@ dependencyResolutionManagement {
     }
 }
 rootProject.name = "HomeWorkout"
-include(":app")
+include(
+    ":core",
+    ":app",
+    ":feature_onboarding"
+)
